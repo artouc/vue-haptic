@@ -34,14 +34,13 @@ npm install use-haptic
 ```
 git clone https://github.com/posaune0423/use-haptic.git
 cd sample
-npm install
-npm run dev
+deno run dev
 ```
 
 And then, access the ip address displayed in the console by your iPhone.
 
 ```bash
-> npm run dev
+> deno task dev
 
 > sample@0.0.0 dev
 > vite --host

@@ -1,4 +1,5 @@
 {
+  "version": "0.0.1",
   "tasks": {
     "dev": "deno run -A --node-modules-dir npm:vite --host",
     "build": "deno run -A --node-modules-dir npm:vite build",
@@ -20,7 +21,8 @@
     "react": "npm:react@^18.3.1",
     "react-dom": "npm:react-dom@^18.3.1",
     "use-haptic": "npm:use-haptic@^1.0.1",
-    "vite": "npm:vite@^6.0.1"
+    "vite": "npm:vite@^6.0.1",
+    "vite-plugin-qrcode": "npm:vite-plugin-qrcode@^0.2.3"
   },
   "deploy": {
     "project": "27435cf6-854d-4fbb-9505-2719b02b08ad",

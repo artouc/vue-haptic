@@ -37,22 +37,11 @@ cd sample
 deno task dev
 ```
 
-And then, access the ip address displayed in the console by your iPhone.
-
 ```bash
-> deno task dev
-
-> sample@0.0.0 dev
-> vite --host
-
-Port 5173 is in use, trying another one...
-
-VITE v5.4.6 ready in 102 ms
-
-➜ Local: http://localhost:5174/
-➜ Network: http://192.xxx.xx.xxx:5174/
-➜ press h + enter to show help
+deno task dev
 ```
+
+And you can visit the demo page by scanning the QR code displayed in the terminal.
 
 ## Usage
 

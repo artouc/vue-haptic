@@ -9,6 +9,7 @@
     "npm:react-dom@^18.3.1": "18.3.1_react@18.3.1",
     "npm:react@^18.3.1": "18.3.1",
     "npm:use-haptic@^1.0.1": "1.0.1_react@18.3.1",
+    "npm:vite-plugin-qrcode@~0.2.3": "0.2.3_vite@5.4.11__@types+node@22.5.4_@types+node@22.5.4",
     "npm:vite@*": "6.0.2",
     "npm:vite@^6.0.1": "6.0.2"
   },
@@ -388,6 +389,9 @@
         "source-map-js"
       ]
     },
+    "qrcode-terminal@0.12.0": {
+      "integrity": "sha512-EXtzRZmC+YGmGlDFbXKxQiMZNwCLEO6BANKXG4iCtSIM0yqc/pappSx3RIKr4r0uh5JsBckOXeKrB3Iz7mdQpQ=="
+    },
     "react-dom@18.3.1_react@18.3.1": {
       "integrity": "sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==",
       "dependencies": [
@@ -445,9 +449,26 @@
         "react"
       ]
     },
+    "vite-plugin-qrcode@0.2.3_vite@5.4.11__@types+node@22.5.4_@types+node@22.5.4": {
+      "integrity": "sha512-TFzhf20v29hnh2XEoZ2kxg8Ff/ui36pR7PGDaHaKEmsQaRagv31XacHxbw5O07HcC1Mkr4tKcYb+PFASSceHmw==",
+      "dependencies": [
+        "qrcode-terminal",
+        "vite@5.4.11_@types+node@22.5.4"
+      ]
+    },
     "vite@5.4.11": {
       "integrity": "sha512-c7jFQRklXua0mTzneGW9QVyxFjUgwcihC4bXEtujIo2ouWCe1Ajt/amn2PCxYnhYfd5k09JX3SB7OYWFKYqj8Q==",
       "dependencies": [
+        "esbuild@0.21.5",
+        "fsevents",
+        "postcss",
+        "rollup"
+      ]
+    },
+    "vite@5.4.11_@types+node@22.5.4": {
+      "integrity": "sha512-c7jFQRklXua0mTzneGW9QVyxFjUgwcihC4bXEtujIo2ouWCe1Ajt/amn2PCxYnhYfd5k09JX3SB7OYWFKYqj8Q==",
+      "dependencies": [
+        "@types/node",
         "esbuild@0.21.5",
         "fsevents",
         "postcss",
@@ -473,6 +494,7 @@
       "npm:react-dom@^18.3.1",
       "npm:react@^18.3.1",
       "npm:use-haptic@^1.0.1",
+      "npm:vite-plugin-qrcode@~0.2.3",
       "npm:vite@^6.0.1"
     ]
   }

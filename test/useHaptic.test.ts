@@ -18,15 +18,9 @@ describe("useHaptic", () => {
     const { unmount } = renderHook(() => useHaptic());
 
     expect(appendChildSpy).toHaveBeenCalledTimes(3);
-    expect((appendChildSpy.mock.calls[0][0] as HTMLElement).tagName).toBe(
-      "DIV",
-    ); // React appends this
-    expect((appendChildSpy.mock.calls[1][0] as HTMLElement).tagName).toBe(
-      "INPUT",
-    );
-    expect((appendChildSpy.mock.calls[2][0] as HTMLElement).tagName).toBe(
-      "LABEL",
-    );
+    expect((appendChildSpy.mock.calls[0][0] as HTMLElement).tagName).toBe("DIV"); // React appends this
+    expect((appendChildSpy.mock.calls[1][0] as HTMLElement).tagName).toBe("INPUT");
+    expect((appendChildSpy.mock.calls[2][0] as HTMLElement).tagName).toBe("LABEL");
 
     unmount();
 
@@ -40,9 +34,7 @@ describe("useHaptic", () => {
     const { result } = renderHook(() => useHaptic());
 
     // Find the label element appended to the document body
-    const label = document.querySelector(
-      'label[for="haptic-switch"]',
-    ) as HTMLLabelElement | null;
+    const label = document.querySelector('label[for="haptic-switch"]') as HTMLLabelElement | null;
 
     // Ensure the label exists
     expect(label).not.toBeNull();

@@ -36,7 +36,11 @@ const useHaptic = (): { vibe: () => void } => {
     if (isIOS) {
       labelRef.current?.click();
     } else {
-      navigator.vibrate(HAPTIC_DURATION);
+      if (navigator?.vibrate) {
+        navigator.vibrate(HAPTIC_DURATION);
+      } else {
+        labelRef.current?.click();
+      }
     }
   }, [isIOS]);
 

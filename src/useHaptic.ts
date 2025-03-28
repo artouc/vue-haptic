@@ -3,7 +3,17 @@ import { detectiOS } from "./utils.ts";
 
 const HAPTIC_DURATION = 100;
 
-const useHaptic = (): { vibe: () => void } => {
+interface UseHapticProps {
+  duration?: number;
+}
+
+/**
+ * Hook for Haptic Feedback for mobile web
+ * @param {UseHapticProps} props
+ * @param {number} props.duration - The duration of the vibration in milliseconds
+ * @returns {Object}
+ */
+const useHaptic = ({ duration = HAPTIC_DURATION }: UseHapticProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const labelRef = useRef<HTMLLabelElement | null>(null);
   const isIOS = useMemo(() => detectiOS(), []);
@@ -37,7 +47,7 @@ const useHaptic = (): { vibe: () => void } => {
       labelRef.current?.click();
     } else {
       if (navigator?.vibrate) {
-        navigator.vibrate(HAPTIC_DURATION);
+        navigator.vibrate(duration);
       } else {
         labelRef.current?.click();
       }

@@ -9,5 +9,8 @@
   },
   "[json]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "bluebrown.yamlfmt"
   }
 }

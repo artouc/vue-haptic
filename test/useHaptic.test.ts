@@ -1,11 +1,11 @@
+import jsdom from "global-jsdom";
+jsdom();
+
 import { assertEquals } from "jsr:@std/assert";
 import { describe, it } from "jsr:@std/testing/bdd";
-import { spy, assertSpyCall, assertSpyCalls } from "jsr:@std/testing/mock";
-import { act, renderHook } from "@testing-library/react";
+import { assertSpyCall, assertSpyCalls, spy } from "jsr:@std/testing/mock";
+import { renderHook } from "@testing-library/react";
 import useHaptic from "../src/useHaptic.ts";
-import jsdom from "global-jsdom";
-
-jsdom();
 
 describe("useHaptic", () => {
   it("elements are added on mount and removed on unmount", () => {
@@ -46,7 +46,9 @@ describe("useHaptic", () => {
     const { result } = renderHook(() => useHaptic());
 
     // get label element added to document.body
-    const label = document.querySelector('label[for="haptic-switch"]') as HTMLLabelElement | null;
+    const label = document.querySelector('label[for="haptic-switch"]') as
+      | HTMLLabelElement
+      | null;
     if (!label) {
       throw new Error("label not found");
     }
@@ -56,9 +58,7 @@ describe("useHaptic", () => {
 
     try {
       // call vibe()
-      act(() => {
-        result.current.vibe();
-      });
+      result.current.vibe();
 
       // verify label.click is called 1 time
       assertSpyCalls(labelClickSpy, 1);

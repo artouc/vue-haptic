@@ -57,7 +57,6 @@ function VibrationButton() {
 
 [MIT](./LICENSE)
 
-
 ## Publish npm package by [dnt](https://github.com/denoland/dnt)
 
 ```bash

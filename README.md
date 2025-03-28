@@ -32,11 +32,16 @@ This package utilizes the `input[switch]` element introduced in [Safari 18.0](ht
 - ✅ Trigger haptic feedback at any time in your React application
 - ✅ Simple, intuitive API
 - ✅ TypeScript support
+- ✅ jsr / npm compatible
 
 ## 📦 Installation
 
 ```bash
 npm install use-haptic
+```
+
+```bash
+deno add jsr:@posaune0423/use-haptic
 ```
 
 ## 🔧 Usage

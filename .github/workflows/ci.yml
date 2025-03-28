@@ -45,4 +45,4 @@ jobs:
         with:
           deno-version: v2.x
       - name: Run tests
-        run: deno test
+        run: deno test -E

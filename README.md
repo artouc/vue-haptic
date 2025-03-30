@@ -24,7 +24,7 @@
     </a>
   </p>
 
-  <h2>
+<h2>
     <a href="https://use-haptic.deno.dev/">Try the Demo!</a>
   </h2>
 </div>

@@ -22,7 +22,7 @@ const HAPTIC_DURATION = 100;
  * }
  * ```
  */
-export const useHaptic = (duration = HAPTIC_DURATION) => {
+export const useHaptic = (duration = HAPTIC_DURATION): { vibe: () => void } => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const labelRef = useRef<HTMLLabelElement | null>(null);
   const isIOS = useMemo(() => detectiOS(), []);

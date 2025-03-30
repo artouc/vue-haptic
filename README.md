@@ -58,8 +58,8 @@ deno add jsr:@posaune0423/use-haptic
 import { useHaptic } from "use-haptic";
 
 function VibrationButton() {
-  const { vibe } = useHaptic();
-  return <button onClick={vibe}>Vibe</button>;
+  const { triggerHaptic } = useHaptic();
+  return <button onClick={triggerHaptic}>Feel Haptic</button>;
 }
 ```
 

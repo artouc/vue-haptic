@@ -41,7 +41,8 @@ trigger haptic feedback anytime, anywhere in your React application.
 - ✅ Trigger haptic feedback at any time in your React application
 - ✅ Support iOS, Android
 - ✅ Simple, intuitive API
-- ✅ TypeScript support
+- ✅ Native TypeScript support by 🦕
+- ✅ ESM / CJS compatible
 - ✅ jsr / npm compatible
 
 ## 📦 Installation

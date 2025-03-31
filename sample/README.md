@@ -17,3 +17,8 @@ Build production assets:
 ```
 $ deno task build
 ```
+
+```bash
+cd /dist
+deployctl deploy --project=your-project-id --prod
+```

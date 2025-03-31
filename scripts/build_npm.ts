@@ -19,6 +19,8 @@ await build({
     // package.json properties
     name: "use-haptic",
     version: Deno.args[0],
+    types: "./esm/mod.d.ts",
+    author: "posaune0423",
     description:
       "useHaptic is a React hook that allows you to use haptic feedback on your website.",
     license: "MIT",

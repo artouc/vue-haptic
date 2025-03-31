@@ -1,4 +1,3 @@
-// ex. scripts/build_npm.ts
 import { build, emptyDir } from "@deno/dnt";
 
 await emptyDir("./npm");
@@ -9,6 +8,12 @@ await build({
   shims: {
     // see JS docs for overview and more options
     deno: true,
+  },
+  typeCheck: "both",
+  test: false,
+  compilerOptions: {
+    target: "ES2020",
+    lib: ["ES2020", "DOM"]
   },
   package: {
     // package.json properties
@@ -24,6 +29,12 @@ await build({
     bugs: {
       url: "https://github.com/posaune0423/use-haptic/issues",
     },
+    dependencies: {
+      "react": "^18.0.0"
+    },
+    devDependencies: {
+      "@types/react": "^18.0.0"
+    }
   },
   postBuild() {
     // steps to run after building and before running the tests

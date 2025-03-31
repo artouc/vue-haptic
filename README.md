@@ -1,31 +1,32 @@
 <div align="center">
+
   <h1>use-haptic 📳</h1>
 
-<p>A convenient React hook to trigger haptic feedback anywhere in your application</p>
+  <p>A convenient React hook to trigger haptic feedback anywhere in your application</p>
 
-<p>
-    <a href="https://jsr.io/@posaune0423/use-haptic">
-      <img src="https://jsr.io/badges/@posaune0423/use-haptic" alt="" />
-    </a>
-    <a href="https://jsr.io/@posaune0423/use-haptic">
-      <img src="https://jsr.io/badges/@posaune0423/use-haptic/score" alt="" />
-    </a>
-    <a href="https://github.com/posaune0423/use-haptic/actions/workflows/ci.yml">
-      <img alt="CI" src="https://github.com/posaune0423/use-haptic/actions/workflows/ci.yml/badge.svg" />
-    </a>
-    <a href="https://www.npmjs.com/package/use-haptic">
-      <img src="https://img.shields.io/npm/v/use-haptic.svg" alt="npm package" />
-    </a>
-    <a href="https://npmjs.org/package/use-haptic">
-      <img alt="downloads" src="https://img.shields.io/npm/d18m/use-haptic" />
-    </a>
-    <a href="https://npmjs.org/package/use-haptic">
-      <img alt="types included" src="https://badgen.net/npm/types/use-haptic" />
-    </a>
+  <p>
+      <a href="https://jsr.io/@posaune0423/use-haptic">
+        <img src="https://jsr.io/badges/@posaune0423/use-haptic" alt="" />
+      </a>
+      <a href="https://jsr.io/@posaune0423/use-haptic">
+        <img src="https://jsr.io/badges/@posaune0423/use-haptic/score" alt="" />
+      </a>
+      <a href="https://github.com/posaune0423/use-haptic/actions/workflows/ci.yml">
+        <img alt="CI" src="https://github.com/posaune0423/use-haptic/actions/workflows/ci.yml/badge.svg" />
+      </a>
+      <a href="https://www.npmjs.com/package/use-haptic">
+        <img src="https://img.shields.io/npm/v/use-haptic.svg" alt="npm package" />
+      </a>
+      <a href="https://npmjs.org/package/use-haptic">
+        <img alt="downloads" src="https://img.shields.io/npm/d18m/use-haptic" />
+      </a>
+      <a href="https://npmjs.org/package/use-haptic">
+        <img alt="types included" src="https://badgen.net/npm/types/use-haptic" />
+      </a>
   </p>
 
-<h2>
-    <a href="https://use-haptic.deno.dev/">Try the Demo!</a>
+  <h2>
+      <a href="https://use-haptic.deno.dev/">Try the Demo!</a>
   </h2>
 </div>
 

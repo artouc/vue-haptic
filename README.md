@@ -46,7 +46,6 @@ trigger haptic feedback anytime, anywhere in your React application.
 
 ## 📦 Installation
 
-
 ```bash
 npm install use-haptic
 ```

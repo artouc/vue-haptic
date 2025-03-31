@@ -84,7 +84,7 @@ Clone the repository and run the sample app:
 
 ```bash
 git clone https://github.com/posaune0423/use-haptic.git
-cd sample
+cd sample/deno-vite-react
 deno task dev
 ```
 

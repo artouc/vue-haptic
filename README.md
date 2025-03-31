@@ -23,7 +23,7 @@
   </p>
 
 <h2>
-      <a href="kjwzkv.csb.app/">Try Demo!</a>
+      <a href="https://kjwzkv.csb.app">Try Demo!</a>
   </h2>
 </div>
 

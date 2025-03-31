@@ -1,5 +1,5 @@
 import "./App.css";
-import { VibrationButton } from "./components/VibrationButton/index.tsx";
+import { HapticButton } from "./components/HapticButton/index.tsx";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
 
-      <VibrationButton />
+      <HapticButton />
 
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more

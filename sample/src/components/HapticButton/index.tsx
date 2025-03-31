@@ -1,9 +1,8 @@
-// @deno-types="@types/react"
 import { useState } from "react";
 import "./style.css";
 import { useHaptic } from "use-haptic";
 
-export const VibrationButton = () => {
+export const HapticButton = () => {
   const [isContinuous, setIsContinuous] = useState(false);
   const [duration, setDuration] = useState(5000);
   const [interval, setInterval] = useState(100);
@@ -29,7 +28,7 @@ export const VibrationButton = () => {
   return (
     <div className="haptic-btn-container">
       <button className="haptic-btn" onClick={handleClick} type="button">
-        Feel Vibration !!!
+        Feel Haptic !!!
       </button>
       <label>
         <input
@@ -37,7 +36,7 @@ export const VibrationButton = () => {
           checked={isContinuous}
           onChange={() => setIsContinuous((prev) => !prev)}
         />
-        Continuous Vibration
+        Continuous Haptic
       </label>
       <label>
         Duration (ms):

@@ -1,10 +1,10 @@
 <div align="center">
 
-  <h1>use-haptic 📳</h1>
+<h1>use-haptic 📳</h1>
 
-  <p>A convenient React hook to trigger haptic feedback anywhere in your application</p>
+<p>A convenient React hook to trigger haptic feedback anywhere in your application</p>
 
-  <p>
+<p>
       <a href="https://jsr.io/@posaune0423/use-haptic">
         <img src="https://jsr.io/badges/@posaune0423/use-haptic" alt="" />
       </a>
@@ -25,7 +25,7 @@
       </a>
   </p>
 
-  <h2>
+<h2>
       <a href="https://use-haptic.deno.dev/">Try the Demo!</a>
   </h2>
 </div>

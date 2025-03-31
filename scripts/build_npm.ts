@@ -13,7 +13,7 @@ await build({
   test: false,
   compilerOptions: {
     target: "ES2020",
-    lib: ["ES2020", "DOM"]
+    lib: ["ES2020", "DOM"],
   },
   package: {
     // package.json properties
@@ -30,11 +30,11 @@ await build({
       url: "https://github.com/posaune0423/use-haptic/issues",
     },
     dependencies: {
-      "react": "^18.0.0"
+      "react": "^18.0.0",
     },
     devDependencies: {
-      "@types/react": "^18.0.0"
-    }
+      "@types/react": "^18.0.0",
+    },
   },
   postBuild() {
     // steps to run after building and before running the tests

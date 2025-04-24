@@ -58,10 +58,12 @@ await build({
       url: "https://github.com/posaune0423/use-haptic/issues",
     },
     dependencies: {
-      "react": "^18.0.0",
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0",
     },
     devDependencies: {
-      "@types/react": "^18.0.0",
+      "@types/react": "^19.0.0",
+      "@types/react-dom": "^19.0.0",
     },
   },
   postBuild() {

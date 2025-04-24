@@ -14,15 +14,15 @@
   },
   "nodeModulesDir": "auto",
   "imports": {
-    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
-    "use-haptic": "jsr:@posaune0423/use-haptic@^1.1.6",
-    "@types/react": "npm:@types/react@^18.3.12",
-    "@types/react-dom": "npm:@types/react-dom@^18.3.1",
-    "@vitejs/plugin-react-swc": "npm:@vitejs/plugin-react-swc@^3.7.1",
-    "react": "npm:react@^18.3.1",
-    "react-dom": "npm:react-dom@^18.3.1",
+    "react": "npm:react@^19.1.0",
+    "react-dom": "npm:react-dom@^19.1.0",
+    "use-haptic": "../../src/mod.ts",
     "vite": "npm:vite@^6.0.1",
-    "vite-plugin-qrcode": "npm:vite-plugin-qrcode@^0.2.3"
+    "vite-plugin-qrcode": "npm:vite-plugin-qrcode@^0.2.3",
+    "@types/react": "npm:@types/react@^19.1.0",
+    "@types/react-dom": "npm:@types/react-dom@^19.1.2",
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
+    "@vitejs/plugin-react-swc": "npm:@vitejs/plugin-react-swc@^3.7.1"
   },
   "deploy": {
     "project": "27435cf6-854d-4fbb-9505-2719b02b08ad",

@@ -9,7 +9,7 @@ const HAPTIC_DURATION = 5;
  * This hook creates hidden DOM elements to trigger haptic feedback using the `input[switch]`
  * element for iOS devices and falls back to the Vibration API for other supported devices.
  *
- * @param {number} duration - The duration of the vibration in milliseconds (default: 100ms)
+ * @param {number} duration - The duration of the vibration in milliseconds (default: 5ms)
  * @returns {Object} An object containing the `triggerHaptic` function to trigger haptic feedback
  *
  * @example
@@ -54,16 +54,12 @@ export const useHaptic = (
   }, []);
 
   const triggerHaptic = useCallback(() => {
-    if (isIOS) {
-      labelRef.current?.click();
+    if (!isIOS && navigator?.vibrate) {
+      navigator.vibrate(duration);
     } else {
-      if (navigator?.vibrate) {
-        navigator.vibrate(duration);
-      } else {
-        labelRef.current?.click();
-      }
+      labelRef.current?.click();
     }
-  }, [isIOS]);
+  }, [isIOS, duration]);
 
   return { triggerHaptic };
 };

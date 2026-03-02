@@ -28,6 +28,10 @@
     "build": "tsup src/index.ts --format cjs,esm --dts --clean",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
+    "lint": "biome check src/ test/",
+    "lint:fix": "biome check --fix src/ test/",
+    "lint:vue": "eslint \"sample/**/*.vue\"",
+    "format": "biome format --write src/ test/",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
@@ -70,9 +74,12 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.5",
     "@types/node": "^22.0.0",
     "@vitejs/plugin-vue": "^5.2.0",
     "@vue/test-utils": "^2.4.6",
+    "eslint": "^10.0.2",
+    "eslint-plugin-vue": "^10.8.0",
     "happy-dom": "^16.0.0",
     "tsup": "^8.0.0",
     "typescript": "^5.7.0",

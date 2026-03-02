@@ -1,7 +1,8 @@
 import { onMounted, onUnmounted, ref } from "vue"
+import type { UseHapticReturn } from "./types"
 import { detectiOS } from "./utils"
 
-const HAPTIC_DURATION = 5
+const haptic_duration = 5
 
 /**
  * Vue composable for triggering haptic feedback on mobile devices
@@ -26,8 +27,8 @@ const HAPTIC_DURATION = 5
  * ```
  */
 export const useHaptic = (
-    duration: number = HAPTIC_DURATION,
-): { triggerHaptic: () => void } => {
+    duration: number = haptic_duration,
+): UseHapticReturn => {
     const input_ref = ref<HTMLInputElement | null>(null)
     const label_ref = ref<HTMLLabelElement | null>(null)
     const is_ios = detectiOS()

@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from "vitest"
 import { mount } from "@vue/test-utils"
+import { describe, expect, it, vi } from "vitest"
 import { defineComponent, h } from "vue"
 import { useHaptic } from "../src/index"
 
@@ -44,9 +44,9 @@ describe("useHaptic", () => {
         const wrapper = mount(TestComponent)
         await wrapper.vm.$nextTick()
 
-        const label = document.querySelector('label[for="haptic-switch"]') as
-            | HTMLLabelElement
-            | null
+        const label = document.querySelector(
+            'label[for="haptic-switch"]',
+        ) as HTMLLabelElement | null
         if (!label) {
             throw new Error("label not found")
         }

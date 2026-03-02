@@ -18,4 +18,5 @@
  * ```
  */
 
+export type { UseHapticReturn } from "./types"
 export * from "./useHaptic"

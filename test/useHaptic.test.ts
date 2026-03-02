@@ -1,51 +1,49 @@
-import jsdom from "global-jsdom";
-jsdom();
-
-import { assertEquals } from "@std/assert";
-import { describe, it } from "@std/testing/bdd";
-import { assertSpyCall, assertSpyCalls, spy } from "@std/testing/mock";
-import { renderHook } from "@testing-library/react";
-import useHaptic from "../src/useHaptic.ts";
+import { describe, it, expect, vi } from "vitest";
+import { mount } from "@vue/test-utils";
+import { defineComponent, h } from "vue";
+import { useHaptic } from "../src/index";
 
 describe("useHaptic", () => {
-  it("elements are added on mount and removed on unmount", () => {
-    // wrap document.body.appendChild and removeChild with spy
-    const appendChildSpy = spy(document.body, "appendChild");
-    const removeChildSpy = spy(document.body, "removeChild");
+  it("elements are added on mount and removed on unmount", async () => {
+    const appendChildSpy = vi.spyOn(document.body, "appendChild");
+    const removeChildSpy = vi.spyOn(document.body, "removeChild");
 
-    try {
-      // render useHaptic hook
-      const { unmount } = renderHook(() => useHaptic());
+    const TestComponent = defineComponent({
+      setup() {
+        useHaptic();
+        return () => h("div");
+      },
+    });
 
-      // verify appendChild is called 3 times
-      assertSpyCalls(appendChildSpy, 3);
+    const wrapper = mount(TestComponent);
 
-      // verify tagName of each added element
-      const firstElement = appendChildSpy.calls[0].args[0] as HTMLElement;
-      const secondElement = appendChildSpy.calls[1].args[0] as HTMLElement;
-      const thirdElement = appendChildSpy.calls[2].args[0] as HTMLElement;
+    await wrapper.vm.$nextTick();
 
-      assertEquals(firstElement.tagName, "DIV");
-      assertEquals(secondElement.tagName, "INPUT");
-      assertEquals(thirdElement.tagName, "LABEL");
+    expect(appendChildSpy).toHaveBeenCalledTimes(2);
 
-      // unmount hook
-      unmount();
+    const calls = appendChildSpy.mock.calls;
+    expect((calls[0][0] as HTMLElement).tagName).toBe("INPUT");
+    expect((calls[1][0] as HTMLElement).tagName).toBe("LABEL");
 
-      // verify removeChild is called 2 times after unmount
-      assertSpyCalls(removeChildSpy, 2);
-    } finally {
-      // restore spy
-      appendChildSpy.restore();
-      removeChildSpy.restore();
-    }
+    wrapper.unmount();
+
+    expect(removeChildSpy).toHaveBeenCalledTimes(2);
+
+    appendChildSpy.mockRestore();
+    removeChildSpy.mockRestore();
   });
 
-  it("label click is executed when triggerHaptic() is called", () => {
-    // render useHaptic hook
-    const { result } = renderHook(() => useHaptic());
+  it("label click is executed when triggerHaptic() is called", async () => {
+    const TestComponent = defineComponent({
+      setup() {
+        const { triggerHaptic } = useHaptic();
+        return () => h("button", { onClick: triggerHaptic }, "Click");
+      },
+    });
 
-    // get label element added to document.body
+    const wrapper = mount(TestComponent);
+    await wrapper.vm.$nextTick();
+
     const label = document.querySelector('label[for="haptic-switch"]') as
       | HTMLLabelElement
       | null;
@@ -53,19 +51,14 @@ describe("useHaptic", () => {
       throw new Error("label not found");
     }
 
-    // wrap label.click with spy
-    const labelClickSpy = spy(label, "click");
+    const labelClickSpy = vi.spyOn(label, "click");
 
-    try {
-      // call vibe()
-      result.current.triggerHaptic();
+    await wrapper.find("button").trigger("click");
+    await wrapper.vm.$nextTick();
 
-      // verify label.click is called 1 time
-      assertSpyCalls(labelClickSpy, 1);
-      // verify arguments of call
-      assertSpyCall(labelClickSpy, 0, { args: [] });
-    } finally {
-      labelClickSpy.restore();
-    }
+    expect(labelClickSpy).toHaveBeenCalledTimes(1);
+
+    labelClickSpy.mockRestore();
+    wrapper.unmount();
   });
 });

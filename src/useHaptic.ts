@@ -1,68 +1,71 @@
-import { useCallback, useEffect, useMemo, useRef } from "react";
-import { detectiOS } from "./utils.ts";
+import { onMounted, onUnmounted, ref } from "vue";
+import { detectiOS } from "./utils";
 
 const HAPTIC_DURATION = 5;
 
 /**
- * React hook for triggering haptic feedback on mobile devices
+ * Vue composable for triggering haptic feedback on mobile devices
  *
- * This hook creates hidden DOM elements to trigger haptic feedback using the `input[switch]`
+ * This composable creates hidden DOM elements to trigger haptic feedback using the `input[switch]`
  * element for iOS devices and falls back to the Vibration API for other supported devices.
  *
  * @param {number} duration - The duration of the vibration in milliseconds (default: 5ms)
  * @returns {Object} An object containing the `triggerHaptic` function to trigger haptic feedback
  *
  * @example
- * ```tsx
- * import { useHaptic } from "use-haptic";
+ * ```vue
+ * <script setup lang="ts">
+ * import { useHaptic } from "vue-haptic";
  *
- * function HapticButton() {
- *   const { triggerHaptic } = useHaptic(200); // 200ms vibration
- *   return <button onClick={triggerHaptic}>Vibrate</button>;
- * }
+ * const { triggerHaptic } = useHaptic(200); // 200ms vibration
+ * </script>
+ *
+ * <template>
+ *   <button @click="triggerHaptic">Vibrate</button>
+ * </template>
  * ```
  */
 export const useHaptic = (
-  duration = HAPTIC_DURATION,
+  duration: number = HAPTIC_DURATION,
 ): { triggerHaptic: () => void } => {
-  const inputRef = useRef<HTMLInputElement | null>(null);
-  const labelRef = useRef<HTMLLabelElement | null>(null);
-  const isIOS = useMemo(() => detectiOS(), []);
+  const inputRef = ref<HTMLInputElement | null>(null);
+  const labelRef = ref<HTMLLabelElement | null>(null);
+  const isIOS = detectiOS();
 
-  useEffect(() => {
-    // Create and append input element
+  onMounted(() => {
     const input = document.createElement("input");
     input.type = "checkbox";
     input.id = "haptic-switch";
     input.setAttribute("switch", "");
     input.style.display = "none";
     document.body.appendChild(input);
-    inputRef.current = input;
+    inputRef.value = input;
 
-    // Create and append label element
     const label = document.createElement("label");
     label.htmlFor = "haptic-switch";
     label.style.display = "none";
     document.body.appendChild(label);
-    labelRef.current = label;
+    labelRef.value = label;
+  });
 
-    // Cleanup function
-    return () => {
-      document.body.removeChild(input);
-      document.body.removeChild(label);
-    };
-  }, []);
+  onUnmounted(() => {
+    if (inputRef.value) {
+      document.body.removeChild(inputRef.value);
+    }
+    if (labelRef.value) {
+      document.body.removeChild(labelRef.value);
+    }
+  });
 
-  const triggerHaptic = useCallback(() => {
+  const triggerHaptic = () => {
     if (!isIOS && navigator?.vibrate) {
       navigator.vibrate(duration);
     } else {
-      labelRef.current?.click();
+      labelRef.value?.click();
     }
-  }, [isIOS, duration]);
+  };
 
   return { triggerHaptic };
 };
 
-// For backwards compatibility
 export default useHaptic;

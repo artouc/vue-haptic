@@ -1,0 +1,83 @@
+{
+  "name": "vue-haptic",
+  "version": "1.1.13",
+  "description": "A convenient Vue composable to trigger haptic feedback anywhere in your application",
+  "author": "posaune0423",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vitest",
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "haptic",
+    "haptic feedback",
+    "pwa",
+    "ios",
+    "Taptic",
+    "iOSHaptic",
+    "Haptics",
+    "TapticHaptic",
+    "iOS Haptic",
+    "Touch Feedback",
+    "Vue Composable",
+    "Vue Composition API",
+    "Vibrate API",
+    "Vibration",
+    "Cross-Platform",
+    "Mobile",
+    "iOS Safari",
+    "Taptic Engine",
+    "Touch Interaction",
+    "User Feedback",
+    "Browser Compatibility",
+    "Device Feedback",
+    "UI/UX"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/posaune0423/vue-haptic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/posaune0423/vue-haptic/issues"
+  },
+  "homepage": "https://github.com/posaune0423/vue-haptic#readme",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@vitejs/plugin-vue": "^5.2.0",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^16.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0",
+    "vitest": "^3.0.0",
+    "vue": "^3.5.0"
+  }
+}

@@ -1,78 +1,66 @@
 <div align="center">
 
-<h1>use-haptic 📳</h1>
+<h1>vue-haptic 📳</h1>
 
-<p>A convenient React hook to trigger haptic feedback anywhere in your application</p>
+<p>A convenient Vue composable to trigger haptic feedback anywhere in your application</p>
 
 <p>
-      <a href="https://jsr.io/@posaune0423/use-haptic">
-        <img src="https://jsr.io/badges/@posaune0423/use-haptic" alt="" />
+      <a href="https://github.com/posaune0423/vue-haptic/actions/workflows/ci.yml">
+        <img alt="CI" src="https://github.com/posaune0423/vue-haptic/actions/workflows/ci.yml/badge.svg" />
       </a>
-      <a href="https://jsr.io/@posaune0423/use-haptic">
-        <img src="https://jsr.io/badges/@posaune0423/use-haptic/score" alt="" />
+      <a href="https://www.npmjs.com/package/vue-haptic">
+        <img src="https://img.shields.io/npm/v/vue-haptic.svg" alt="npm package" />
       </a>
-      <a href="https://github.com/posaune0423/use-haptic/actions/workflows/ci.yml">
-        <img alt="CI" src="https://github.com/posaune0423/use-haptic/actions/workflows/ci.yml/badge.svg" />
-      </a>
-      <a href="https://www.npmjs.com/package/use-haptic">
-        <img src="https://img.shields.io/npm/v/use-haptic.svg" alt="npm package" />
-      </a>
-      <a href="https://npmjs.org/package/use-haptic">
-        <img alt="downloads" src="https://img.shields.io/npm/d18m/use-haptic" />
+      <a href="https://npmjs.org/package/vue-haptic">
+        <img alt="downloads" src="https://img.shields.io/npm/d18m/vue-haptic" />
       </a>
   </p>
-
-<h2>
-      <a href="https://kjwzkv.csb.app">Try Demo!</a>
-  </h2>
 </div>
 
 ## ✨ Overview
 
 This package utilizes the `input[switch]` element introduced in
 [Safari 18.0](https://webkit.org/blog/15865/webkit-features-in-safari-18-0/) to
-trigger haptic feedback anytime, anywhere in your React application.
+trigger haptic feedback anytime, anywhere in your Vue application.
 
 ## 🚀 Features
 
-- ✅ Trigger haptic feedback at any time in your React application
+- ✅ Trigger haptic feedback at any time in your Vue application
 - ✅ Support iOS, Android
 - ✅ Simple, intuitive API
-- ✅ Native TypeScript support by 🦕
+- ✅ Native TypeScript support
 - ✅ ESM / CJS compatible
-- ✅ jsr / npm compatible
 
 ## 📦 Installation
 
 ```bash
-npm install use-haptic
+npm install vue-haptic
 ```
 
 ```bash
-yarn add use-haptic
+yarn add vue-haptic
 ```
 
 ```bash
-pnpm install use-haptic
+pnpm add vue-haptic
 ```
 
 ```bash
-bun add use-haptic
-```
-
-```bash
-deno add jsr:@posaune0423/use-haptic
+bun add vue-haptic
 ```
 
 ## 🔧 Usage
 
-```tsx
-import { useHaptic } from "use-haptic";
+```vue
+<script setup lang="ts">
+import { useHaptic } from "vue-haptic";
 
-function HapticButton() {
-  const { triggerHaptic } = useHaptic();
-  return <button onClick={triggerHaptic}>Feel Haptic</button>;
-}
+const { triggerHaptic } = useHaptic();
+</script>
+
+<template>
+  <button @click="triggerHaptic">Feel Haptic</button>
+</template>
 ```
 
 ## 🏃‍♂️ Quick Start
@@ -80,26 +68,31 @@ function HapticButton() {
 Clone the repository and run the sample app:
 
 ```bash
-git clone https://github.com/posaune0423/use-haptic.git
-cd sample/deno-vite-react
-deno task dev
+git clone https://github.com/posaune0423/vue-haptic.git
+cd sample/vite-vue
+npm install
+npm run dev
 ```
 
 You can visit the demo page by scanning the QR code displayed in the terminal.
 
 ## 🧰 Development
 
+```bash
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Build
+npm run build
+```
+
 ### Publishing to npm
 
-This package uses [dnt](https://github.com/denoland/dnt) for npm package
-preparation:
-
 ```bash
-# Build the package
-deno run -A scripts/build_npm.ts <version>
-
-# Publish to npm
-cd npm
+npm run build
 npm publish
 ```
 
